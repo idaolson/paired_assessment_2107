@@ -9,6 +9,8 @@ RSpec.describe Budget do
     mail_room = Department.new("Mail Room")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "100000"})
     aaron = Employee.new({name: "Aaron Tanaka", age: "25", salary: "90000"})
+    customer_service.hire(aaron)
+    mail_room.hire(bobbi)
 
     it "exists and has attributes" do
       expect(budget).to be_a(Budget)
@@ -27,11 +29,13 @@ RSpec.describe Budget do
       mail_room.expense(120)
       expect(budget.minor_departments).to eq([mail_room])
     end
+    #
+    # it "can list all employee salaries" do
+    #   expect(budget.all_employee_salaries).to eq([90000, 100000])
+    # end
 
-    it "can list all employee salaries" do
-      customer_service.hire(aaron)
-      mail_room.hire(bobbi)
-      expect(budget.all_employee_salaries).to eq([90000, 100000])
+    it "can list all employee salaries by name and salary" do
+      expect(budget.all_employee_salaries_hash).to eq("Aaron Tanaka" => 90000, "Bobbi Jaeger" => 100000)
     end
   end
 end
