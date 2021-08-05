@@ -40,3 +40,15 @@ pry(main)> customer_service.expense(25)
 pry(main)> customer_service.expenses
 # => 125
 ```
+
+# Iteration 3
+
+You have been contracted by the State of Colorado to create a software system that can track its yearly budgets. Specifically, they would like you to implement the following functionality:
+
+1. Each budget has a year, as well as a way to read that data
+1. A budget can list all of its departments
+1. A budget can list all departments with expenses less than $500
+1. A budget can list all employees' salaries
+
+Build upon your code from the first two iterations to complete this task.
+# enigma
