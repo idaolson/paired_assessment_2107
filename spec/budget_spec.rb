@@ -17,8 +17,8 @@ RSpec.describe Budget do
 
     it "has an array of departments and can add departments" do
       expect(budget.departments).to eq([])
-      add_department(customer_service)
-      add_department(mail_room)
+      budget.add_department(customer_service)
+      budget.add_department(mail_room)
       expect(budget.departments).to eq([customer_service, mail_room])
     end
 
@@ -29,18 +29,9 @@ RSpec.describe Budget do
     end
 
     it "can list all employee salaries" do
-      expect(budget.all_employee_salaries).to eq([])
-      mail_room.hire(bobbi)
       customer_service.hire(aaron)
-      expect(budget.all_employee_salaries).to eq([100000, 90000])
+      mail_room.hire(bobbi)
+      expect(budget.all_employee_salaries).to eq([90000, 100000])
     end
   end
 end
-
-
-# Each budget has a year, as well as a way to read that data
-# 1. A budget can list all of its departments
-# 1. A budget can list all departments with expenses less than $500
-# 1. A budget can list all employees' salaries
-#
-# Build upon your code from the first two iterations to complete this task.
