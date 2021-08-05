@@ -15,14 +15,24 @@ class Budget
       department if department.expenses < 500
     end
   end
+  # 
+  # def all_employee_salaries
+  #   all_salaries = []
+  #   @departments.each do |department|
+  #     department.employees.each do |employee|
+  #       all_salaries << employee.salary.to_i
+  #     end
+  #   end
+  #   all_salaries
+  # end
 
-  def all_employee_salaries
-    all_salaries = []
+  def all_employee_salaries_hash
+    all_salaries_hash = {}
     @departments.each do |department|
       department.employees.each do |employee|
-        all_salaries << employee.salary.to_i
+        all_salaries_hash[employee.name] = employee.salary.to_i
       end
     end
-    all_salaries
+    all_salaries_hash
   end
 end
